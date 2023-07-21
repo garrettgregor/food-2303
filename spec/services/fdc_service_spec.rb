@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe FdcService do
@@ -36,7 +38,7 @@ RSpec.describe FdcService do
         count = result[:totalHits]
 
         expect(count).to be_an(Integer)
-        expect(count).to eq(55579)
+        expect(count).to eq(55_579)
       end
     end
   end

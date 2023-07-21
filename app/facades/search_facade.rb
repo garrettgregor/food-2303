@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SearchFacade
   def search(query)
     service = FdcService.new
