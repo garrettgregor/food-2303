@@ -1,10 +1,19 @@
+# frozen_string_literal: true
+
 class SearchFacade
-  def all_merchants
+  def search(query)
     service = FdcService.new
 
-    json = service.#method_name
+    json = service.search(query)
 
-    # @foods = json[:data].map { |details| Food.new(details) }
-    # @food = Food.new(json[:data])
+    @foods = json[:foods].map { |details| Food.new(details) }
+  end
+
+  def food_count(query)
+    service = FdcService.new
+
+    json = service.food_count(query)
+
+    @foods = json[:totalHits]
   end
 end
