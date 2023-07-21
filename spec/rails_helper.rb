@@ -3,6 +3,10 @@ require 'spec_helper'
 
 require 'simplecov'
 SimpleCov.start
+SimpleCov.add_filter 'app/channels'
+SimpleCov.add_filter 'app/jobs'
+SimpleCov.add_filter 'app/mailers'
+SimpleCov.add_filter 'app/models'
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
@@ -34,6 +38,8 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
+  require 'helper_methods'
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
