@@ -1,7 +1,13 @@
 class FdcService
-  # def merchants_index
-  #   get_url("/api/v1/merchants")
-  # end
+  def search(query)
+    term = query.sub(' ', '%20')
+    get_url("fdc/v1/foods/search?query=#{term}&dataType=&pageSize=10")
+  end
+
+  def food_count(query)
+    term = query.sub(' ', '%20')
+    get_url("fdc/v1/foods/search?query=#{term}&dataType=&pageSize=10")
+  end
 
   def get_url(url)
     response = conn.get(url)
